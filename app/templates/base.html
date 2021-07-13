@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  {% block head %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    {% block styles %}
+      <link rel="stylesheet" href="../static/bootstrap-4.4.1.min.css">
+      <link rel="stylesheet" href="../static/main.css">
+    {% endblock %}
+    
+    <title>
+      {% block title %}
+        {% if title %}{{ title }}{% else %}pfStream{% endif %}
+      {% endblock %}
+    </title>
+  {% endblock %}
+</head>
+
+<body>
+  {% block navbar %}
+    <nav class="navbar navbar-dark bg-dark">
+      <a href="/">
+        <div class="navbar-brand"><img src="../static/pfsense-logo.png" class="logo">pfStream</div>
+      </a>
+    </nav>
+  {% endblock %}
+  <div class="container custom-container">
+    <div class="row">
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-info" role="alert">{{ message }}</div>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+    </div>
+    {% block content %}{% endblock %}
+  </div>
+  {% block scripts %}{% endblock %}
+</body>

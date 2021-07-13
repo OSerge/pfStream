@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="row">
+    <div class="col-3 custom-col">
+      <div class="row">
+        <div class="col-12">
+          <div class="">
+            <input type="text" id="sourceIP" placeholder="Source" class="form-control ip-address-field">
+            <input type="text" id="sourcePort" placeholder="Port" class="form-control port-field">
+          </div>
+          <div class="">
+            <input type="text" id="destIP" placeholder="Destination" class="form-control ip-address-field">
+            <input type="text" id="destPort" placeholder="Port" class="form-control port-field">
+          </div>
+          </div>
+      </div>
+      <div class="top-buffer">
+        <span style="margin-right: 7px;">4th Layer:</span>
+        <div class="custom-control custom-radio custom-control-inline my-custom-radio">
+          <input class="custom-control-input" type="radio" name="transProtoRadio" id="anyTransport" value="anyProt" checked>
+          <label class="custom-control-label" for="anyTransport">Any</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline my-custom-radio">
+          <input class="custom-control-input" type="radio" name="transProtoRadio" id="TCPTransport" value="TCPProt">
+          <label class="custom-control-label" for="TCPTransport">TCP</label>
+        </div>
+        <div class="custom-control custom-radio custom-control-inline my-custom-radio">
+          <input class="custom-control-input" type="radio" name="transProtoRadio" id="UDPTransport" value="UDPProt">
+          <label class="custom-control-label" for="UDPTransport">UDP</label>
+        </div>
+      </div>
+      <div class="top-buffer">
+        <input type="text" id="any_substring" placeholder="Any substring" class="form-control any-substring-field">
+      </div>
+      <div class="top-buffer">
+        <form id="control">
+          <button name="start" id="start-button" class="btn btn-primary">Start</button>
+          <button name="stop" id="stop-button" class="btn btn-secondary">Stop</button>
+          <button name="clean" id="clean-button" class="btn btn-info">Clean</button>
+        </form>
+      </div>
+    </div>
+    <div class="col-9">
+      <div id="log-container" class="log-container">
+        <table class="table table-sm">
+          <thead></thead>
+          <tbody id="log-body" class="log-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+{% endblock %}
+
+{% block scripts %}
+  <script defer src="../static/socket.io.js"></script>
+  <script defer src="../static/loghandler.js"></script>
+{% endblock %}
