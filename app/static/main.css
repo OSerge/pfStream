@@ -1,3 +1,6 @@
+body {
+    background-color: #edeef0 !important;
+}
 .navbar-nav > li > a {
     padding-top: 7px !important;
     padding-bottom: 7px !important;
@@ -5,7 +8,12 @@
 
 .navbar {
     min-height: 35px !important;
+    max-height: 45px !important;
     border-radius: 0px;
+    background-color: #FFF;
+    color: #212529;
+    font-style: bold;
+    padding: 0.2rem 22rem;
 }
 
 .top-buffer {
@@ -13,7 +21,7 @@
 }
 
 .logo {
-    width: 35px;
+    width: 30px;
     height: 30px;
     margin-top: -8px;
     margin-right: 5px;
@@ -74,7 +82,5 @@
 }
 
 .grey-row {
-    background-color: #fafafa;
+    background-color: #f0f3f5;
 }
-
-
